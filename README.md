@@ -73,5 +73,16 @@ db0:keys=15,expires=0,avg_ttl=0
 13) "blobs::sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4"
 14) "repository::httpd::blobs::sha256:a7ff98debbdc22c6a717d4a86bfb99fcd0d4f8534a533ed94089dddaf5c4a94a"
 15) "blobs::sha256:5b3039cd40c998628a5754fb63d6570b03b658352990b5d2017b4b97db2455dd"
+
+172.17.0.112:6379> TYPE blobs::sha256:94118c67a40b1e95e1f8a573c18b080dcbf9f93cbdad4ee00da83ba44122727c
+hash
+
+172.17.0.112:6379> HGETALL blobs::sha256:94118c67a40b1e95e1f8a573c18b080dcbf9f93cbdad4ee00da83ba44122727c
+1) "size"
+2) "133631"
+3) "digest"
+4) "sha256:94118c67a40b1e95e1f8a573c18b080dcbf9f93cbdad4ee00da83ba44122727c"
+5) "mediatype"
+6) "application/octet-stream"
 ````
 --> SUCCESS: the Docker registry used redis as a caching system
