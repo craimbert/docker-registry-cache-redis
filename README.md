@@ -1,4 +1,4 @@
-# docker-regsitry-cache-redis
+# docker-registry-cache-redis
 How to set up a Docker Registry v2 using redis for caching
 
 ##Run redis container
