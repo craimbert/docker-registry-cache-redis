@@ -85,4 +85,4 @@ hash
 5) "mediatype"
 6) "application/octet-stream"
 ````
---> SUCCESS: the Docker registry used redis as a caching system
+--> SUCCESS: the Docker registry used redis as a caching storage
