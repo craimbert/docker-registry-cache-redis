@@ -1,13 +1,13 @@
 # docker-regsitry-cache-redis
 How to set up a Docker Registry v2 using redis for caching
 
-##Run redis cache container
+##Run redis container
 ````
 $ docker run --name cache-redis -d -p 6379:6379 redis
 ````
 
 ##Set up the IP of the host
-If you are using docker-machine, set IP to the IP of that machine; or just use "localhost" otherwise
+If you are using docker-machine, use the IP of that docker-machine; or just use "localhost" otherwise
 ````
 MY_IP=$(docker-machine ip $(docker-machine active))
 ````
