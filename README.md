@@ -28,18 +28,23 @@ $ docker run -d -p 5000:5000 \
 ````
 $ docker logs -f registry
 ````
+###Startup
 In the startup logs you can see: 
 ````
 level=info msg="using redis blob descriptor cache"
 ````
-=> redis as caching method enabled
-
-In the meantime from another terminal, push an image to the newly created docker registry:
+=> redis enabled as caching storage
+###Push an image to the regisry
+From another terminal, push an image to the docker registry:
 ````
 $ docker tag httpd:latest localhost:5000/httpd
 $ docker push localhost:5000/httpd
 ````
-In the logs there is: level=info msg="redis: connect 192.168.99.100:6379" => connection succesful with redis server
+In the logs there is: 
+````
+level=info msg="redis: connect 192.168.99.100:6379"
+````
+ => connection succesful with redis server
 
 ##Inspect redis DB: run the redis cli-client & query the k/v store
 ````
@@ -69,3 +74,4 @@ db0:keys=15,expires=0,avg_ttl=0
 14) "repository::httpd::blobs::sha256:a7ff98debbdc22c6a717d4a86bfb99fcd0d4f8534a533ed94089dddaf5c4a94a"
 15) "blobs::sha256:5b3039cd40c998628a5754fb63d6570b03b658352990b5d2017b4b97db2455dd"
 ````
+--> SUCCESS: the Docker registry used redis as a caching system
