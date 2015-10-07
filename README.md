@@ -13,7 +13,7 @@ MY_IP=192.168.99.100
 ````
 ##Run Docker Registry v2 container
 For official documentation about registry configuration -> go [here](https://docs.docker.com/registry/configuration/).
-Example:
+<br>Example:
 * specify redis as the caching method:  env var REGISTRY_STORAGE_CACHE_BLOBDESCRIPTOR=redis
 * define redis minimal conf: env var REGISTRY_REDIS_ADDR=$MY_IP:6379
 ````
@@ -22,19 +22,21 @@ $ docker run -d -p 5000:5000 \
 	--name registry \
 	-e REGISTRY_STORAGE_CACHE_BLOBDESCRIPTOR=redis \
 	-e REGISTRY_REDIS_ADDR=$MY_IP:6379 \
-    	registry:2
+	registry:2
 ````  	
-
+##Look at the setup redis-registry running
 ````
 $ docker logs -f registry
 ````
-level=info msg="using redis blob descriptor cache"
-level=info msg="redis: connect 192.168.99.100:6379"
+In the startup logs you can see: level=info msg="using redis blob descriptor cache" => redis as caching method enabled
 ````
+In the meantime from another terminal, push an image to the newly created docker registry:
 $ docker tag httpd:latest localhost:5000/httpd
 $ docker push localhost:5000/httpd
 ````
+In the logs there is: level=info msg="redis: connect 192.168.99.100:6379" => connection succesful with redis server
 
+##Inspect redis DB: run the redis cli-client & query the k/v store
 ````
 $ docker run --rm -it \
 	  --link cache-redis:redis \
