@@ -9,7 +9,7 @@ $ docker run --name cache-redis -d -p 6379:6379 redis
 ##Set up the IP of the host
 If you are using docker-machine, set IP to the IP of that machine; or just use "localhost" otherwise
 ````
-MY_IP=192.168.99.100
+MY_IP=$(docker-machine ip $(docker-machine active))
 ````
 ##Run Docker Registry v2 container
 For official documentation about registry configuration -> go [here](https://docs.docker.com/registry/configuration/).
