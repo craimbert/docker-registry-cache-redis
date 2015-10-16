@@ -7,7 +7,7 @@ $ docker run --name cache-redis -d -p 6379:6379 redis
 ````
 
 ##Set up the IP of the host
-If you are using docker-machine, use the IP of that docker-machine; or just use "localhost" otherwise
+Use the IP of the docker host. Example using docker-machine:
 ````
 MY_IP=$(docker-machine ip $(docker-machine active))
 ````
